@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:test/login.dart';
+import 'package:test/pages/home.dart';
+import 'package:test/pages/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,34 +15,34 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'S\'inscrire',
+      title: 'Se connecter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RegisterPage(),
+      home: const LoginPage(),
     );
   }
 }
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Retour'),
-      // ),
+      appBar: AppBar(
+          // title: const Text('Retour'),
+          ),
       body: Padding(
-        padding: const EdgeInsets.all(35.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           child: Column(
             children: <Widget>[
-              // const Text('S\'inscrire'),
+              const Text('Se Connecter'),
               IconButton(
                 icon: const Icon(
                   Icons.lock,
-                  size: 90, // Taille de l'icône agrandie
+                  size: 150, // Taille de l'icône agrandie
                   color: Color(0xFF6C9FEE), // Couleur de l'icône
                 ),
                 onPressed: () {
@@ -50,25 +51,15 @@ class RegisterPage extends StatelessWidget {
                 },
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Prenom & Nom'),
-              ),
-              const SizedBox(height: 15),
-              TextFormField(
                 decoration:
                     const InputDecoration(labelText: 'Nom d\'utilisateur'),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Mot de passe'),
                 obscureText: true,
               ),
-              const SizedBox(height: 15),
-              TextFormField(
-                decoration:
-                    const InputDecoration(labelText: 'Confirmer Mot de passe'),
-                obscureText: true,
-              ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor:
@@ -76,6 +67,10 @@ class RegisterPage extends StatelessWidget {
                 ),
                 onPressed: () {
                   // Action pour le bouton S'inscrire (à définir si nécessaire)
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
                 },
                 child: const Text(
                   'Connexion',
@@ -85,21 +80,21 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Déja Inscris? '),
+                  const Text('Vous n\'avez pas de compte? '),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const LoginPage()),
+                            builder: (context) => const RegisterPage()),
                       );
                     },
                     child: const Text(
-                      'Se Connecter',
+                      'S\'inscrire',
                       style: TextStyle(
                         color: Color(0xFF6C9FEE), // Couleur du texte cliquable
                         fontWeight: FontWeight.bold,
@@ -108,7 +103,7 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
               const Text('Ou'),
               SignInButton(
                 Buttons.Google,

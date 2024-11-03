@@ -18,6 +18,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.blue,
       unselectedItemColor: Colors.grey,
+      elevation:10,
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
         BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Listes'),
@@ -29,3 +30,4 @@ class CustomBottomNavigationBar extends StatelessWidget {
     );
   }
 }
+
