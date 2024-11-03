@@ -33,7 +33,7 @@ class TaskOverviewPage extends StatefulWidget {
 
 class _TaskOverviewPageState extends State<TaskOverviewPage> {
   List<String> tasks = [
-    'Design application Flutter',
+    'Design application Flutters',
     'Meeting avec l\'équipe',
     'Révision des spécifications'
   ];
